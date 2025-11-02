@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 import pokebase as pb
 
 
@@ -9,13 +9,16 @@ def home():
     return "Welcome to Omarchy Pokedex!"
 
 
+
+@app.route('/hello/<name>')
+def hello(name):
+    return render_template('hello.html', person=name)
+
 #Pokedex Route for url handling
 @app.route('/Pokedex')
 def Pokedex():
-    response = "Welcome Trainer!<br>"
-    response += "This is a placeholder route.<br>"
-    response += "More features coming soon!"
-    return response
+    return render_template('index.html')
+
 
 # Get the Pokemon
 def get_pokemon(pokemon_name):
