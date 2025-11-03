@@ -10,16 +10,18 @@
     <h1>Enter Your Pokemon</h1>
     <p>Explore the world of Pokemon!</p>
 
-    <form action="/pd" method="POST">
+    <form action="/pokemon" method="POST">
         <label for="pokemon_name">Pokemon Name:</label><br>
-        <input pokemon="pokemon_name" placeholder_2="Give me your Pokemon" required><br><br>
-        <button type="submit" value="Get Pokemon Info">
+        <input type = "text" name="pokemon_name" placeholder="Give me your Pokemon" required><br><br>
+        <button type="submit" value="Get Pokemon Info">Submit</button>
     </form>
 
-    <form action="/greet" method="POST">
+<br><br>
+
+    <!--<form action="/greet" method="POST">
         <input name="username" placeholder="Type your name">
         <button type="submit">Say Hi!</button>
     </form>
-
+-->
 </body>
 </html>

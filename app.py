@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, redirect, url_for
 import pokebase as pb
 
 
@@ -15,14 +15,23 @@ def greet():
     return f"Hello, {name}! Welcome to Omarchy Pokedex."
 
 
-@app.route('/pd', methods=['POST'])
-def pd():
+@app.route('/pokemon', methods=['POST'])
+def pokemon_p():
+    pokemon_name = request.form['pokemon_name']
+    return redirect(url_for('pokemon_name', name=pokemon_name))
+
+@app.route('/pokemon/<name>')
+def pokemon_name(name):
+    return f"This is your pokemon: {name.capitalize()}!"
 
 
+#@app.route('/hello/<name>')
+#def hello(name):
+#    return render_template('hello.html', person=name)
 
-@app.route('/hello/<name>')
-def hello(name):
-    return render_template('hello.html', person=name)
+
+#--------------------------------------
+
 
 #Pokedex Route for url handling
 @app.route('/Pokedex')
@@ -31,7 +40,7 @@ def Pokedex():
 
 
 # PLACEHOLDER
-@app.route(/'pokemon/<name>')
+#@app.route('/pokemon/<name>')
 
 
 
