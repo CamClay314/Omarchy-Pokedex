@@ -1,8 +1,12 @@
 from flask import Flask, jsonify, request, render_template, redirect, url_for
 import pokebase as pb
+import threading
 
 
 app = Flask(__name__)
+
+
+#thread = threading.Thread()
 
 @app.route('/')
 def home():
